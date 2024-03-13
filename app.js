@@ -37,8 +37,9 @@ function buildSquares(n) {
             const divSquare = document.createElement('DIV');
             divSquare.style.width = `${sideSquare}px`;
             divSquare.style.height = `${sideSquare}px`;
-            divSquare.style.boxSizing = 'border-box'
+            divSquare.style.boxSizing = 'border-box';
             divSquare.classList.add('divSquare', `divSquare${i}`);
+            divSquare.dataset.iteractions = 1;
             divSquare.addEventListener('mouseover', changeColor);
             divColumn.appendChild(divSquare);
         }
@@ -47,8 +48,15 @@ function buildSquares(n) {
 }
 
 function changeColor(e) {
+    let indexColor = 0;
+    if(e.target.dataset.iteractions>0){
+        indexColor = e.target.dataset.iteractions*255;
+        e.target.dataset.iteractions -=0.1;
+    } else {
+        indexColor = 0;
+    }
     if (e.type === "mouseover") {
-        e.target.style.backgroundColor = 'red';
+        e.target.style.backgroundColor = `rgb(${Math.floor(Math.random()*indexColor)}, ${Math.floor(Math.random()*indexColor)}, ${Math.floor(Math.random()*indexColor)})`;
     }
 }
 
