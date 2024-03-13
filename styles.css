@@ -5,11 +5,21 @@
 
 #container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
 }
 
 .divSquare {
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     background-color: green;
     border: 1px solid black;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
 }
